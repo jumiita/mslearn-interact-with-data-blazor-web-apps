@@ -23,11 +23,22 @@
 		
 
    @code {
+
+[Parameter]
+public PizzaTopping Topping {get; set;}
+    Pizza configuringPizza;
+    bool showingConfigureDialog;
     List<PizzaSpecial> specials = new();
 
 protected override async Task OnInitializedAsync()
 {
     specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
+      void ShowConfiguringPizzaDialog(PizzaSpecial special){
+        Special = special,
+        SpecialId = special.Id,
+        Size = Pizza.DefaultSize
+      };
+      showingConfigureDialog = true;
 }
 
 }

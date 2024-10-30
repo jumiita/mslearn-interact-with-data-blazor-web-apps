@@ -64,5 +64,5 @@ public class SeedData{
         };
         db.Specials.AddRange(specials);
         db.SaveChanges();
-}
+    }
 }
